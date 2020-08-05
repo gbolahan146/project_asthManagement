@@ -9,13 +9,16 @@ class HomeViewMobile extends StatelessWidget {
       ),
       body: Center(
         child: Container(
+          //setting dimension for widget width
           width: McGyver.rsDoubleW(context, 20),
+          //setting dimension for widget height
           height: McGyver.rsDoubleH(context, 15),
           color: Colors.red,
           child: Center(
             child: Text(
               'Test',
               style: TextStyle(
+                //making fontsize reponsive to different screen sizes
                 fontSize: McGyver.textSize(context, 3),
               ),
             ),

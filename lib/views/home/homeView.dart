@@ -14,6 +14,7 @@ part 'homeTablet.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //responsive builder for various screen types.. Its optional.
     return ScreenTypeLayout(
       mobile: HomeViewMobile(),
       tablet: HomeViewTablet(),
