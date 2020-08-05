@@ -7,7 +7,7 @@ class McGyver {
 
   McGyver mcGyver = McGyver();
 
-  static final TAG_CLASS_ID = "McGyver";
+  // static final TAG_CLASS_ID = "McGyver";
 
   static double _fixedWidth;    // Defined in pixels !!
   static double _fixedHeight;   // Defined in pixels !!
@@ -22,9 +22,9 @@ class McGyver {
     return ((val * mod).round().toDouble() / mod);
   }
 
-  static Orientation setScaleRatioBasedOnDeviceOrientation(BuildContext ctx) {
+  static Orientation setScaleRatioBasedOnDeviceOrientation(BuildContext context) {
     Orientation scaleAxis;
-    if(MediaQuery.of(ctx).orientation == Orientation.portrait) {
+    if(MediaQuery.of(context).orientation == Orientation.portrait) {
       _fixedWidth = 420;                  // Ration: 1 [width]
       _fixedHeight = 840;                 // Ration: 2 [height]
       scaleAxis = Orientation.portrait;   // Shortest axis == width !!
@@ -36,41 +36,41 @@ class McGyver {
     return scaleAxis;
   }
 
-  static int rsIntW(BuildContext ctx, double scaleValue) {
+  static int rsIntW(BuildContext context, double scaleValue) {
 
     // ---------------------------------------------------------------------------------------- //
     // INFO: Ratio-Scaled integer - Scaling based on device's width.                            //
     // ---------------------------------------------------------------------------------------- //
 
-    final double _origVal = McGyver.rsDoubleW(ctx, scaleValue);
+    final double _origVal = McGyver.rsDoubleW(context, scaleValue);
     return McGyver.roundToDecimals(_origVal, 0).toInt();
   }
 
-  static int rsIntH(BuildContext ctx, double scaleValue) {
+  static int rsIntH(BuildContext context, double scaleValue) {
 
     // ---------------------------------------------------------------------------------------- //
     // INFO: Ratio-Scaled integer - Scaling based on device's height.                           //
     // ---------------------------------------------------------------------------------------- //
 
-    final double _origVal = McGyver.rsDoubleH(ctx, scaleValue);
+    final double _origVal = McGyver.rsDoubleH(context, scaleValue);
     return McGyver.roundToDecimals(_origVal, 0).toInt();
   }
 
-  static double rsDoubleW(BuildContext ctx, double wPerc) {
+  static double rsDoubleW(BuildContext context, double wPerc) {
 
     // ------------------------------------------------------------------------------------------------------- //
     // INFO: Ratio-Scaled double - scaling based on device's screen width in relation to fixed width ration.   //
-    // INPUTS: - 'ctx'     [context] -> BuildContext                                                           //
+    // INPUTS: - 'context'     [context] -> BuildContext                                                           //
     //         - 'wPerc'   [double]  -> Value (as a percentage) to be ratio-scaled in terms of width.          //
     // OUTPUT: - 'rsWidth' [double]  -> Ratio-scaled value.                                                    //
     // ------------------------------------------------------------------------------------------------------- //
 
     final int decimalPlaces = 14;   //* NB: Don't change this value -> has big effect on output result accuracy !!
 
-    Size screenSize = MediaQuery.of(ctx).size;                  // Device Screen Properties (dimensions etc.).
+    Size screenSize = MediaQuery.of(context).size;                  // Device Screen Properties (dimensions etc.).
     double scrnWidth = screenSize.width.floorToDouble();        // Device Screen maximum Width (in pixels).
 
-    McGyver.setScaleRatioBasedOnDeviceOrientation(ctx);   //* Set Scale-Ratio based on device orientation.
+    McGyver.setScaleRatioBasedOnDeviceOrientation(context);   //* Set Scale-Ratio based on device orientation.
 
     double rsWidth = 0;   //* OUTPUT: 'rsWidth' == Ratio-Scaled Width (in pixels)
     if (scrnWidth == _fixedWidth) {
@@ -96,22 +96,22 @@ class McGyver {
     return rsWidth;
   }
 
-  static double rsDoubleH(BuildContext ctx, double hPerc) {
+  static double rsDoubleH(BuildContext context, double hPerc) {
 
     // ------------------------------------------------------------------------------------------------------- //
     // INFO: Ratio-Scaled double - scaling based on device's screen height in relation to fixed height ration. //
-    // INPUTS: - 'ctx'      [context] -> BuildContext                                                          //
+    // INPUTS: - 'context'      [context] -> BuildContext                                                          //
     //         - 'hPerc'    [double]  -> Value (as a percentage) to be ratio-scaled in terms of height.        //
     // OUTPUT: - 'rsHeight' [double]  -> Ratio-scaled value.                                                   //
     // ------------------------------------------------------------------------------------------------------- //
 
     final int decimalPlaces = 14;   //* NB: Don't change this value -> has big effect on output result accuracy !!
 
-    Size scrnSize = MediaQuery.of(ctx).size;                  // Device Screen Properties (dimensions etc.).
+    Size scrnSize = MediaQuery.of(context).size;                  // Device Screen Properties (dimensions etc.).
     double scrnHeight = scrnSize.height.floorToDouble();      // Device Screen maximum Height (in pixels).
-    double statsBarHeight = MediaQuery.of(ctx).padding.top;   // Status Bar Height (in pixels).
+    double statsBarHeight = MediaQuery.of(context).padding.top;   // Status Bar Height (in pixels).
 
-    McGyver.setScaleRatioBasedOnDeviceOrientation(ctx);   //* Set Scale-Ratio based on device orientation.
+    McGyver.setScaleRatioBasedOnDeviceOrientation(context);   //* Set Scale-Ratio based on device orientation.
 
     double rsHeight = 0;   //* OUTPUT: 'rsHeight' == Ratio-Scaled Height (in pixels)
     if (scrnHeight == _fixedHeight) {
@@ -144,7 +144,7 @@ class McGyver {
     return rsHeight;
   }
 
-  static Widget rsWidget(BuildContext ctx, Widget inWidget,
+  static Widget rsWidget(BuildContext context, Widget inWidget,
                     double percWidth, double percHeight, {String viewID}) {
 
     // ---------------------------------------------------------------------------------------------- //
@@ -152,14 +152,14 @@ class McGyver {
     // ---------------------------------------------------------------------------------------------- //
 
     return SizedBox(
-      width: McGyver.rsDoubleW(ctx, percWidth),
-      height: McGyver.rsDoubleH(ctx, percHeight),
+      width: McGyver.rsDoubleW(context, percWidth),
+      height: McGyver.rsDoubleH(context, percHeight),
       child: inWidget,
     );
   }
 
   //* SPECIAL 'rsWidget' that has both its height & width ratio-scaled based on 'width' alone !!
-  static Widget rsWidgetW(BuildContext ctx, Widget inWidget,
+  static Widget rsWidgetW(BuildContext context, Widget inWidget,
                     double percWidth, double percHeight, {String viewID}) {
 
     // ---------------------------------------------------------------------------------------------- //
@@ -167,8 +167,8 @@ class McGyver {
     // ---------------------------------------------------------------------------------------------- //
 
     return SizedBox(
-      width: McGyver.rsDoubleW(ctx, percWidth),
-      height: McGyver.rsDoubleW(ctx, percHeight),
+      width: McGyver.rsDoubleW(context, percWidth),
+      height: McGyver.rsDoubleW(context, percHeight),
       child: inWidget,
     );
   }
