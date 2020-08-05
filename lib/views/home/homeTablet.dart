@@ -9,13 +9,15 @@ class HomeViewTablet extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          width: McGyver.rsDoubleW(context, 10),
-          height: McGyver.rsDoubleH(context, 10),
+          width: McGyver.rsDoubleW(context, 20),
+          height: McGyver.rsDoubleH(context, 15),
           color: Colors.red,
-          child: Text(
-            'Test',
-            style: TextStyle(
-              fontSize: McGyver.textSize(context, 3),
+          child: Center(
+            child: Text(
+              'Test',
+              style: TextStyle(
+                fontSize: McGyver.textSize(context, 3),
+              ),
             ),
           ),
         ),
