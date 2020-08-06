@@ -17,7 +17,7 @@ class RouteGenerator {
         return CupertinoPageRoute(builder: (context) => SplashScreen());
         break;
       case RouteNames.home:
-        return MaterialPageRoute(builder: (context) => Home());
+        return CupertinoPageRoute(builder: (context) => Home());
         break;
       case RouteNames.login:
         return MaterialPageRoute(builder: (context) => LogIn());

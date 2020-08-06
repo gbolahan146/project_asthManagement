@@ -1,5 +1,5 @@
 import 'package:asthma_management/core/services/responsiveness.dart';
-import 'package:asthma_management/views/login/utils/colors.dart';
+import 'package:asthma_management/views/login/utils/login_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

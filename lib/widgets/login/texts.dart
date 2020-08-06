@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Texts extends StatelessWidget {
@@ -25,6 +26,7 @@ class RichTexts extends StatelessWidget {
   final String text;
   final String extraText;
   final TextStyle textStyle;
+  final TapGestureRecognizer tapGestureRecognizer;
   final TextStyle extraTextStyle;
   final TextAlign textAlign;
   const RichTexts({
@@ -34,6 +36,7 @@ class RichTexts extends StatelessWidget {
     this.textAlign,
     this.extraText,
     this.extraTextStyle,
+    this.tapGestureRecognizer,
   }) : super(key: key);
 
   @override
@@ -44,6 +47,7 @@ class RichTexts extends StatelessWidget {
         TextSpan(
           text: extraText,
           style: extraTextStyle,
+          recognizer: tapGestureRecognizer,
         ),
       ]),
     );

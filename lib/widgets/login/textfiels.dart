@@ -1,5 +1,6 @@
 import 'package:asthma_management/core/services/responsiveness.dart';
-import 'package:asthma_management/views/login/utils/colors.dart';
+import 'package:asthma_management/views/login/loginViewModel.dart';
+import 'package:asthma_management/views/login/utils/login_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,6 +8,7 @@ class TextFields extends StatelessWidget {
   final String labelText;
   final TextEditingController controller;
   final TextInputType inputType;
+  final LoginViewModel loginViewModel;
   final Widget suffixIcon;
   final String Function(String) validator;
   final bool obscure;
@@ -19,6 +21,7 @@ class TextFields extends StatelessWidget {
     this.validator,
     this.obscure,
     this.key,
+    this.loginViewModel,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -30,8 +33,8 @@ class TextFields extends StatelessWidget {
           hintColor: borderColor,
         ),
         child: Container(
-          width: McGyver.rsDoubleW(context, 95),
-          height: McGyver.rsDoubleH(context, 9.7),
+          //  width: McGyver.rsDoubleW(context, 95),
+          //height: McGyver.rsDoubleH(context, 9.7),
           child: TextFormField(
             style: GoogleFonts.poppins(color: textfieldColor),
             controller: controller,
