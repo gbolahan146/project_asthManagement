@@ -1,5 +1,6 @@
 
 
+import 'package:asthma_management/views/bottombar/bottombar.dart';
 import 'package:asthma_management/views/home/homeView.dart';
 import 'package:asthma_management/views/profile2/profile2View.dart';
 import 'package:asthma_management/views/signup/signupView.dart';
@@ -14,6 +15,7 @@ class RouteNames {
   static const String splashScreen = '/';
   static const String medicationScreen = '/medicationScreen';
   static const String profile2 = '/profile2';
+  static const String bottomBar = '/bottomBar';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     ///Named routes to be added here in this format
@@ -21,6 +23,7 @@ class RouteNames {
     RouteNames.signup: (context) => SignUp(),
     RouteNames.splashScreen: (context) => SplashScreen(),
     RouteNames.medicationScreen: (context) => MedicationScreen(),
-    RouteNames.profile2: (context) => Profile2()
+    RouteNames.profile2: (context) => Profile2(),
+    RouteNames.bottomBar: (context) => MyHomePage()
   };
 }

@@ -9,7 +9,7 @@ class HomeViewMobile extends StatelessWidget {
       ),
       body: Center(
         child: GestureDetector(
-          onTap: () => Navigator.pushNamed(context, RouteNames.profile2),
+          // onTap: () => Navigator.pushNamed(context, RouteNames.bottomBar),
           child: Container(
             //setting dimension for widget width
             width: McGyver.rsDoubleW(context, 20),
