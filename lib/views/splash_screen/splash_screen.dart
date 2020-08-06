@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:asthma_management/core/routes/route_names.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -18,10 +19,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   startTimer() async {
     var duration = Duration(seconds: 3);
+    final prefs = await SharedPreferences.getInstance();
+    final id = prefs.getString('userID');
 
     return new Timer(duration, () {
-      // checkAuthentication();
-      Navigator.pushNamed(context, RouteNames.home);
+      if (id != null) {
+        Navigator.pushNamed(context, RouteNames.home);
+      } else {
+        Navigator.pushNamed(context, RouteNames.signup);
+      }
     });
   }
 

@@ -1,9 +1,9 @@
 import 'package:asthma_management/core/services/responsiveness.dart';
 import 'package:asthma_management/views/login/utils/colors.dart';
 import 'package:asthma_management/views/login/validators.dart';
-import 'package:asthma_management/views/login/widgets/button.dart';
-import 'package:asthma_management/views/login/widgets/textfiels.dart';
-import 'package:asthma_management/views/login/widgets/texts.dart';
+import 'package:asthma_management/widgets/login/button.dart';
+import 'package:asthma_management/widgets/login/textfiels.dart';
+import 'package:asthma_management/widgets/login/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,7 +48,8 @@ class _LogInState extends State<LogIn> {
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding:
+                EdgeInsets.symmetric(horizontal: McGyver.rsDoubleW(context, 7)),
             child: Column(
               children: <Widget>[
                 Row(
