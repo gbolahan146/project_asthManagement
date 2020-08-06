@@ -1,4 +1,5 @@
 import 'package:asthma_management/views/home/homeView.dart';
+import 'package:asthma_management/views/login/view/login.dart';
 import 'package:flutter/material.dart';
 
 class RouteNames {
@@ -8,6 +9,7 @@ class RouteNames {
 
   static Map<String, Widget Function(BuildContext)> routes = {
     ///Named routes to be added here in this format
-    RouteNames.home: (context) => Home()
+    RouteNames.home: (context) => Home(),
+    RouteNames.login: (context) => LogIn()
   };
 }
