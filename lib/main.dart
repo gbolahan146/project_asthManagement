@@ -36,11 +36,6 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: RouteGenerator.generateRoute,
         routes: RouteNames.routes,
         initialRoute: RouteNames.splashScreen,
-        // home to be replaced with initial route
-        // home: SignUp(
-        //   viewModel: SignupViewModel(),
-        // ),
-        // home: Home(),
       ),
     );
   }

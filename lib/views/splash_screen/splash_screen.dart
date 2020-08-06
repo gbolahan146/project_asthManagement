@@ -13,14 +13,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    startTimer();
+    // startTimer();
   }
 
   startTimer() async {
     var duration = Duration(seconds: 3);
 
     return new Timer(duration, () {
-      // checkAuthentication();
+      
       Navigator.pushNamed(context, RouteNames.home);
     });
   }

@@ -2,6 +2,7 @@
 
 import 'package:asthma_management/views/home/homeView.dart';
 import 'package:asthma_management/views/signup/signupView.dart';
+import 'package:asthma_management/views/medication_screen/medication_screen.dart';
 import 'package:asthma_management/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +11,13 @@ class RouteNames {
   static const String home = '/home';
   static const String signup = '/signup';
   static const String splashScreen = '/';
+  static const String medicationScreen = 'medicationScreen';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     ///Named routes to be added here in this format
     RouteNames.home: (context) => Home(),
     RouteNames.signup: (context) => SignUp(),
     RouteNames.splashScreen: (context) => SplashScreen(),
+    RouteNames.medicationScreen: (context) => MedicationScreen(),
   };
 }
