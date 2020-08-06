@@ -17,6 +17,10 @@ dependencies:
   responsive_builder:
   get_it:
   flutter_svg:
+  get:
+  flutter_spinkit:
+  hooks_riverpod:
+  flutter_hooks:
   
 
 dev_dependencies:

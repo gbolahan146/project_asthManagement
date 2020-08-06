@@ -10,6 +10,8 @@ class SignupTextField extends StatefulWidget {
   final TextEditingController controller;
   final void Function(String) onChanged;
   final SignupViewModel viewModel;
+  final String Function(String) validator;
+  final TextInputType keyboardType;
 
   const SignupTextField(
       {Key key,
@@ -18,7 +20,7 @@ class SignupTextField extends StatefulWidget {
       this.controller,
       this.onChanged,
       this.obscure,
-      this.viewModel})
+      this.viewModel, this.validator, this.keyboardType})
       : super(key: key);
 
   @override
@@ -34,6 +36,8 @@ class _SignupTextFieldState extends State<SignupTextField> {
 
     return TextFormField(
       onChanged: widget.onChanged,
+      validator: widget.validator,
+      keyboardType: widget.keyboardType,
       obscureText: widget.text == 'Password' ? visible ? false : true : false,
       decoration: InputDecoration(
         border: InputBorder.none,
