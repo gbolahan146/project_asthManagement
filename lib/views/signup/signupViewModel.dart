@@ -48,7 +48,7 @@ class SignupViewModel extends ChangeNotifier {
       setState(ButtonState.Idle);
       final Map error = json.decode(response.body);
       SnackBarService.instance
-          .showSnackBarError(error['errors']['email'] ?? 'User already exists');
+          .showSnackBarError(error['errors']['email'][0] ?? 'User already exists');
       return null;
     } else if (response.statusCode == 200) {
       final Map feedback = json.decode(response.body);

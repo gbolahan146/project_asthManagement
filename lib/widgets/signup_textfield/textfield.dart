@@ -35,6 +35,7 @@ class _SignupTextFieldState extends State<SignupTextField> {
     
 
     return TextFormField(
+      controller: widget.controller,
       onChanged: widget.onChanged,
       validator: widget.validator,
       keyboardType: widget.keyboardType,
@@ -43,6 +44,10 @@ class _SignupTextFieldState extends State<SignupTextField> {
         border: InputBorder.none,
         contentPadding: EdgeInsets.fromLTRB(14.0, 12.0, 0.0, 12.0),
         filled: false,
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),
+          borderRadius: BorderRadius.circular(0),
+        ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),
           borderRadius: BorderRadius.circular(0),

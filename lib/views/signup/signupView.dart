@@ -7,6 +7,7 @@ import 'package:asthma_management/views/home/homeView.dart';
 import 'package:asthma_management/views/signup/colors.dart';
 import 'package:asthma_management/views/signup/signupViewModel.dart';
 import 'package:asthma_management/widgets/signup_textfield/textfield.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -24,9 +25,6 @@ part 'signupTablet.dart';
 
 
 class SignUp extends StatelessWidget {
-  // final SignupViewModel viewModel;
-
-  // const SignUp({Key key, this.viewModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

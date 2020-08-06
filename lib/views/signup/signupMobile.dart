@@ -109,8 +109,10 @@ class _SignupViewMobileState extends State<SignupViewMobile> {
                           height: McGyver.rsDoubleH(context, 9),
                           color: buttonColor,
                           onPressed: () {
+                            print(emailController.text);
                             final form = formKey.currentState;
                             if (form.validate()) {
+                              print(emailController.text);
                               form.save();
                               widget.viewModel
                                   .signup(
@@ -119,7 +121,9 @@ class _SignupViewMobileState extends State<SignupViewMobile> {
                                       passwordController.text)
                                   .then((value) {
                                 if (value != null) {
-                                  Get.off(Home());
+                                  Future.delayed(Duration(seconds: 3), () {
+                                    Get.off(Home());
+                                  });
                                 }
                               });
                             }
@@ -147,16 +151,15 @@ class _SignupViewMobileState extends State<SignupViewMobile> {
                             color: Color(0xff332f2f)),
                         children: <TextSpan>[
                           TextSpan(
-                            text: ' Sign in',
-                            style: GoogleFonts.dmSans(
-                                fontSize: McGyver.textSize(context, 2.4),
-                                fontWeight: FontWeight.bold,
-                                color: welcomeTextColor),
-                            // recognizer: TapGestureRecognizer()
-                            // ..onTap = () {
-                            //   // navigate to desired screen
-                            // }
-                          )
+                              text: ' Sign in',
+                              style: GoogleFonts.dmSans(
+                                  fontSize: McGyver.textSize(context, 2.4),
+                                  fontWeight: FontWeight.bold,
+                                  color: welcomeTextColor),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  //Navigate to signin screen
+                                })
                         ]),
                   ),
                 )
