@@ -1,5 +1,6 @@
 import 'package:asthma_management/core/routes/route_names.dart';
 import 'package:asthma_management/views/home/homeView.dart';
+import 'package:asthma_management/views/signup/signupView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,8 @@ class RouteGenerator {
       case RouteNames.home:
         return MaterialPageRoute(builder: (context) => Home());
         break;
+      case RouteNames.signup:
+        return MaterialPageRoute(builder: (context) => SignUp());
 
       default:
         return _errorRoute();
