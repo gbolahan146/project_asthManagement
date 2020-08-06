@@ -1,5 +1,6 @@
 import 'package:asthma_management/core/routes/route_names.dart';
 import 'package:asthma_management/views/home/homeView.dart';
+import 'package:asthma_management/views/login/view/login.dart';
 import 'package:asthma_management/views/medication_screen/medication_screen.dart';
 import 'package:asthma_management/views/signup/signupView.dart';
 import 'package:asthma_management/views/splash_screen/splash_screen.dart';
@@ -16,8 +17,10 @@ class RouteGenerator {
         return CupertinoPageRoute(builder: (context) => SplashScreen());
         break;
       case RouteNames.home:
-        return MaterialPageRoute(builder: (context) => Home());
+        return CupertinoPageRoute(builder: (context) => Home());
         break;
+      case RouteNames.login:
+        return MaterialPageRoute(builder: (context) => LogIn());
       case RouteNames.signup:
         return MaterialPageRoute(builder: (context) => SignUp());
       case RouteNames.medicationScreen:

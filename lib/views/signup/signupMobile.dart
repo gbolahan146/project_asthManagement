@@ -69,7 +69,7 @@ class _SignupViewMobileState extends State<SignupViewMobile> {
                     controller: usernameController,
                     viewModel: widget.viewModel,
                     validator: UsernameValidator.validate,
-                    keyboardType: TextInputType.name,
+                    keyboardType: TextInputType.text,
                     text: 'Name',
                     obscure: false,
                   ),
