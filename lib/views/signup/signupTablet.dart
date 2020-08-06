@@ -69,7 +69,7 @@ class _SignupViewTabletState extends State<SignupViewTablet> {
                     controller: usernameController,
                     viewModel: widget.viewModel,
                     validator: UsernameValidator.validate,
-                    keyboardType: TextInputType.name,
+                    keyboardType: TextInputType.text,
                     text: 'Name',
                     obscure: false,
                   ),
@@ -108,7 +108,7 @@ class _SignupViewTabletState extends State<SignupViewTablet> {
                           minWidth: width,
                           height: McGyver.rsDoubleH(context, 9),
                           color: buttonColor,
-                          onPressed: () { 
+                          onPressed: () {
                             print(emailController.text);
                             final form = formKey.currentState;
                             if (form.validate()) {
@@ -151,16 +151,15 @@ class _SignupViewTabletState extends State<SignupViewTablet> {
                             color: Color(0xff332f2f)),
                         children: <TextSpan>[
                           TextSpan(
-                            text: ' Sign in',
-                            style: GoogleFonts.dmSans(
-                                fontSize: McGyver.textSize(context, 2.4),
-                                fontWeight: FontWeight.bold,
-                                color: welcomeTextColor),
-                            recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              //Navigate to signin screen
-                            }
-                          )
+                              text: ' Sign in',
+                              style: GoogleFonts.dmSans(
+                                  fontSize: McGyver.textSize(context, 2.4),
+                                  fontWeight: FontWeight.bold,
+                                  color: welcomeTextColor),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  //Navigate to signin screen
+                                })
                         ]),
                   ),
                 )

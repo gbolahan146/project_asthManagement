@@ -20,7 +20,9 @@ class SignupTextField extends StatefulWidget {
       this.controller,
       this.onChanged,
       this.obscure,
-      this.viewModel, this.validator, this.keyboardType})
+      this.viewModel,
+      this.validator,
+      this.keyboardType})
       : super(key: key);
 
   @override
@@ -32,8 +34,6 @@ class _SignupTextFieldState extends State<SignupTextField> {
   bool obscure = true;
   @override
   Widget build(BuildContext context) {
-    
-
     return TextFormField(
       controller: widget.controller,
       onChanged: widget.onChanged,

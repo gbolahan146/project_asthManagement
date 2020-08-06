@@ -54,10 +54,12 @@ class SignupViewModel extends ChangeNotifier {
       final Map feedback = json.decode(response.body);
       final Map user = feedback['data'];
       String apiKey = user['id'].toString();
+    
       SnackBarService.instance
           .showSnackBarSuccess('Account created for ${user['name']}');
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString('userID', apiKey);
+      await preferences.setString('username', user['name']);
       setState(ButtonState.Idle);
 
       print(apiKey);

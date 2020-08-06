@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return new Timer(duration, () {
       if (id != null) {
-        Navigator.pushNamed(context, RouteNames.home);
+        Navigator.pushNamed(context, RouteNames.bottomBar);
       } else {
         Navigator.pushNamed(context, RouteNames.signup);
       }

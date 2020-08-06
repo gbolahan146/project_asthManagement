@@ -69,7 +69,7 @@ class _SignupViewDesktopState extends State<SignupViewDesktop> {
                     controller: usernameController,
                     viewModel: widget.viewModel,
                     validator: UsernameValidator.validate,
-                    keyboardType: TextInputType.name,
+                    keyboardType: TextInputType.text,
                     text: 'Name',
                     obscure: false,
                   ),
