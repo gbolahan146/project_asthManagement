@@ -1,5 +1,6 @@
 import 'package:asthma_management/core/routes/route_names.dart';
 import 'package:asthma_management/views/home/homeView.dart';
+import 'package:asthma_management/views/splash_screen/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +10,9 @@ class RouteGenerator {
     switch (settings.name) {
 
       ///All views are registered here with appropriate page transition in this format
-      // case RouteNames.splashScreen:
-      //   return CupertinoPageRoute(builder: (context) => SplashScreen());
-      //   break;
+      case RouteNames.splashScreen:
+        return CupertinoPageRoute(builder: (context) => SplashScreen());
+        break;
       case RouteNames.home:
         return MaterialPageRoute(builder: (context) => Home());
         break;
