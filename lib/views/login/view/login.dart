@@ -3,6 +3,8 @@ import 'package:asthma_management/views/home/homeView.dart';
 import 'package:asthma_management/views/login/loginViewModel.dart';
 import 'package:asthma_management/views/login/utils/login_utils.dart';
 import 'package:asthma_management/views/login/validators.dart';
+import 'package:asthma_management/views/profile2/profile2View.dart';
+import 'package:asthma_management/views/signup/colors.dart';
 import 'package:asthma_management/views/signup/signupView.dart';
 import 'package:asthma_management/widgets/login/button.dart';
 import 'package:asthma_management/widgets/login/textfiels.dart';
@@ -10,6 +12,7 @@ import 'package:asthma_management/widgets/login/texts.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -44,32 +47,29 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     final viewModel = Provider.of<LoginViewModel>(context);
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
-          child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: McGyver.rsDoubleW(context, 7)),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Flexible(
-                      flex: 1,
-                      child: Container(),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Container(
-                        child: Image.asset(
-                          'assets/images/asset.png',
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ],
+          child: Column(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  // color: Colors.red,
+                  width: McGyver.rsDoubleW(context, 70),
+                  height: McGyver.rsDoubleH(context, 30),
+                  child: SvgPicture.asset(
+                    'assets/images/signup.svg',
+                    fit: BoxFit.contain,
+                    alignment: Alignment.centerRight,
+                  ),
                 ),
-                Align(
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: McGyver.rsDoubleW(context, 7)),
+                child: Align(
                   alignment: Alignment.topLeft,
                   child: Texts(
                       text: 'Welcome!',
@@ -80,8 +80,12 @@ class _LogInState extends State<LogIn> {
                         fontStyle: FontStyle.normal,
                       )),
                 ),
-                SizedBox(height: McGyver.rsDoubleH(context, 1)),
-                Align(
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 1)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: McGyver.rsDoubleW(context, 7)),
+                child: Align(
                   alignment: Alignment.topLeft,
                   child: Texts(
                       textAlign: TextAlign.justify,
@@ -94,8 +98,12 @@ class _LogInState extends State<LogIn> {
                         fontStyle: FontStyle.normal,
                       )),
                 ),
-                SizedBox(height: McGyver.rsDoubleH(context, 2)),
-                TextFields(
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 6)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: McGyver.rsDoubleW(context, 7)),
+                child: TextFields(
                   loginViewModel: viewModel,
                   controller: emailController,
                   validator: Validators.emailValidator,
@@ -103,8 +111,12 @@ class _LogInState extends State<LogIn> {
                   inputType: TextInputType.emailAddress,
                   obscure: false,
                 ),
-                SizedBox(height: McGyver.rsDoubleH(context, 0)),
-                TextFields(
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 4)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: McGyver.rsDoubleW(context, 7)),
+                child: TextFields(
                   loginViewModel: viewModel,
                   obscure: obscure,
                   controller: passwordController,
@@ -120,24 +132,30 @@ class _LogInState extends State<LogIn> {
                   ),
                   inputType: TextInputType.name,
                 ),
-                SizedBox(height: McGyver.rsDoubleH(context, 1)),
-                Row(
-                  children: <Widget>[
-                    Spacer(),
-                    Texts(
-                      text: 'Forgot Password?',
-                      textStyle: GoogleFonts.dmSans(
-                        color: links,
-                        fontSize: McGyver.textSize(context, 2),
-                        fontWeight: FontWeight.normal,
-                        fontStyle: FontStyle.normal,
-                      ),
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 2)),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: McGyver.rsDoubleW(context, 7)),
+                  child: Texts(
+                    text: 'Forgot Password?',
+                    textStyle: GoogleFonts.dmSans(
+                      color: links,
+                      fontSize: McGyver.textSize(context, 2),
+                      fontWeight: FontWeight.normal,
+                      fontStyle: FontStyle.normal,
                     ),
-                  ],
+                  ),
                 ),
-                SizedBox(height: McGyver.rsDoubleH(context, 2)),
-                viewModel.buttonStates == ButtonStates.Idle
-                    ? Buttons(
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 4)),
+              viewModel.buttonStates == ButtonStates.Idle
+                  ? Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: McGyver.rsDoubleW(context, 7)),
+                      child: Buttons(
                         text: 'Login',
                         onPressed: () {
                           final form = _formKey.currentState;
@@ -149,43 +167,49 @@ class _LogInState extends State<LogIn> {
                                     passwordController.text)
                                 .then((value) {
                               if (value != null) {
-                                Future.delayed(Duration(seconds: 3), () {
-                                  Get.off(Home());
-                                });
+                                if (value == 'Profile') {
+                                  Future.delayed(Duration(seconds: 3), () {
+                                    Get.off(Profile2());
+                                  });
+                                } else {
+                                  Future.delayed(Duration(seconds: 3), () {
+                                    Get.off(Home());
+                                  });
+                                }
                               }
                             });
                           }
                         },
-                      )
-                    : SpinKitThreeBounce(
-                        color: darkblue,
-                        size: 30,
                       ),
-                SizedBox(height: McGyver.rsDoubleH(context, 2)),
-                RichTexts(
-                  textAlign: TextAlign.center,
-                  text: 'I am a new User ',
-                  textStyle: GoogleFonts.dmSans(
-                    color: darkblue,
-                    fontSize: McGyver.textSize(context, 1.9),
-                    fontWeight: FontWeight.normal,
-                    fontStyle: FontStyle.normal,
-                  ),
-                  extraText: ' Sign up',
-                  extraTextStyle: GoogleFonts.dmSans(
-                    color: links,
-                    fontSize: McGyver.textSize(context, 2),
-                    fontWeight: FontWeight.normal,
-                    fontStyle: FontStyle.normal,
-                  ),
-                  tapGestureRecognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Get.to(SignUp());
-                    },
+                    )
+                  : SpinKitThreeBounce(
+                      color: darkblue,
+                      size: 30,
+                    ),
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              RichTexts(
+                textAlign: TextAlign.center,
+                text: 'I am a new user, ',
+                textStyle: GoogleFonts.dmSans(
+                  color: darkblue,
+                  fontSize: McGyver.textSize(context, 1.9),
+                  fontWeight: FontWeight.normal,
+                  fontStyle: FontStyle.normal,
                 ),
-                SizedBox(height: McGyver.rsDoubleH(context, 2)),
-              ],
-            ),
+                extraText: ' Sign up',
+                extraTextStyle: GoogleFonts.dmSans(
+                  color: links,
+                  fontSize: McGyver.textSize(context, 2),
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.normal,
+                ),
+                tapGestureRecognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Get.to(SignUp());
+                  },
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 2)),
+            ],
           ),
         ),
       ),

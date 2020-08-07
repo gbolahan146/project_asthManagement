@@ -42,15 +42,15 @@ class _SignupTextFieldState extends State<SignupTextField> {
       obscureText: widget.text == 'Password' ? visible ? false : true : false,
       decoration: InputDecoration(
         border: InputBorder.none,
-        contentPadding: EdgeInsets.fromLTRB(14.0, 12.0, 0.0, 12.0),
+        
         filled: false,
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),
-          borderRadius: BorderRadius.circular(0),
+          borderRadius: BorderRadius.circular(3),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),
-          borderRadius: BorderRadius.circular(0),
+          borderRadius: BorderRadius.circular(3),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),

@@ -25,40 +25,33 @@ class TextFields extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Theme(
-        data: ThemeData(
-          primaryColor: borderColor,
-          hintColor: borderColor,
-        ),
-        child: Container(
-          //  width: McGyver.rsDoubleW(context, 95),
-          //height: McGyver.rsDoubleH(context, 9.7),
-          child: TextFormField(
-            style: GoogleFonts.poppins(color: textfieldColor),
-            controller: controller,
-            keyboardType: inputType,
-            validator: validator,
-            obscureText: obscure,
-            decoration: InputDecoration(
-              labelText: labelText,
-              filled: true,
-              fillColor: white,
-              suffixIcon: labelText == 'Password' ? suffixIcon : SizedBox(),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: borderColor,
-                ),
-              ),
-              border: OutlineInputBorder(),
-              labelStyle: GoogleFonts.poppins(
-                color: textfieldColor,
-                fontSize: McGyver.textSize(context, 2),
-                fontWeight: FontWeight.normal,
-                fontStyle: FontStyle.normal,
-              ),
+    return Theme(
+      data: ThemeData(
+        primaryColor: borderColor,
+        hintColor: borderColor,
+      ),
+      child: TextFormField(
+        style: GoogleFonts.poppins(color: textfieldColor),
+        controller: controller,
+        keyboardType: inputType,
+        validator: validator,
+        obscureText: obscure,
+        decoration: InputDecoration(
+          labelText: labelText,
+          filled: true,
+          fillColor: white,
+          suffixIcon: labelText == 'Password' ? suffixIcon : SizedBox(),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: borderColor,
             ),
+          ),
+          border: OutlineInputBorder(),
+          labelStyle: GoogleFonts.poppins(
+            color: textfieldColor,
+            fontSize: McGyver.textSize(context, 2),
+            fontWeight: FontWeight.normal,
+            fontStyle: FontStyle.normal,
           ),
         ),
       ),

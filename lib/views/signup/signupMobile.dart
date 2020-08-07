@@ -61,7 +61,7 @@ class _SignupViewMobileState extends State<SignupViewMobile> {
                         fontWeight: FontWeight.normal),
                   ),
                 ),
-                SizedBox(height: McGyver.rsDoubleH(context, 8)),
+                SizedBox(height: McGyver.rsDoubleH(context, 6)),
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: McGyver.rsDoubleW(context, 7)),
@@ -158,7 +158,7 @@ class _SignupViewMobileState extends State<SignupViewMobile> {
                                   color: welcomeTextColor),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  //Navigate to signin screen
+                                  Get.to(LogIn());
                                 })
                         ]),
                   ),

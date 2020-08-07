@@ -62,6 +62,9 @@ class LoginViewModel extends ChangeNotifier {
       SnackBarService.instance
           .showSnackBarError(error['error'] ?? 'UnAuthorized User');
       return null;
+    } else if (response.statusCode == 302) {
+      setState(ButtonStates.Idle);
+      return 'Profile';
     } else {
       print(response.statusCode);
       setState(ButtonStates.Idle);

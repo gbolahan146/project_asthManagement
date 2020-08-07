@@ -159,6 +159,7 @@ class _SignupViewTabletState extends State<SignupViewTablet> {
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
                                   //Navigate to signin screen
+                                  Get.to(LogIn());
                                 })
                         ]),
                   ),

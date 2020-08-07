@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: RouteGenerator.generateRoute,
         routes: RouteNames.routes,
         initialRoute: RouteNames.splashScreen,
+        
       ),
     );
   }

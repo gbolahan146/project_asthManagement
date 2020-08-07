@@ -20,11 +20,11 @@ class _SplashScreenState extends State<SplashScreen> {
   startTimer() async {
     var duration = Duration(seconds: 3);
     final prefs = await SharedPreferences.getInstance();
-    final id = prefs.getString('userID');
+    final id = prefs.getString('token');
 
     return new Timer(duration, () {
       if (id != null) {
-        Navigator.pushNamed(context, RouteNames.home);
+        Navigator.pushNamed(context, RouteNames.bottomBar);
       } else {
         Navigator.pushNamed(context, RouteNames.signup);
       }
