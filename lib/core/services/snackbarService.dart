@@ -1,3 +1,4 @@
+import 'package:asthma_management/views/signup/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -14,32 +15,28 @@ class SnackBarService {
   }
 
   void showSnackBarError(String _message) {
-    Get.snackbar(
-      'Error',
-      'Message',
-      colorText: Colors.white,
-      duration: Duration(seconds: 3),
-      messageText: Text(
-        _message,
-        style: TextStyle(
-            color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-      backgroundColor: Colors.red,
-    );
+    Get.snackbar('Hey there!', _message,
+        snackPosition: SnackPosition.TOP,
+        snackStyle: SnackStyle.FLOATING,
+        leftBarIndicatorColor: buttonColor,
+        backgroundColor: Colors.red,
+        borderRadius: 0,
+        duration: Duration(seconds: 4),
+        icon: Icon(Icons.error)
+        // backgroundColor: buttonColor
+        );
   }
 
   void showSnackBarSuccess(String _message) {
-    Get.snackbar(
-      'Success',
-      'Message',
-      colorText: Colors.white,
-      duration: Duration(seconds: 2),
-      messageText: Text(
-        _message,
-        style: TextStyle(
-            color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-      ),
-      backgroundColor: Colors.green,
-    );
+    Get.snackbar('Hey there!', _message,
+        snackPosition: SnackPosition.TOP,
+        snackStyle: SnackStyle.FLOATING,
+        leftBarIndicatorColor: buttonColor,
+        backgroundColor: Colors.lightGreen,
+        borderRadius: 0,
+        duration: Duration(seconds: 4),
+        icon: Icon(Icons.check_circle)
+        // backgroundColor: buttonColor
+        );
   }
 }

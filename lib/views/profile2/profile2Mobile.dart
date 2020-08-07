@@ -1,11 +1,13 @@
 part of profile2;
 
-class Profile2ViewMobile extends StatelessWidget {
+class Profile2ViewMobile extends HookWidget {
   final Profile2ViewModel viewModel;
 
   const Profile2ViewMobile({Key key, this.viewModel}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    print(viewModel.phone);
+    final ageController = useTextEditingController();
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: backgroundColor,
@@ -256,6 +258,7 @@ class Profile2ViewMobile extends StatelessWidget {
                           text: '(234) 813 0665 028',
                           obscure: false,
                           keyboardType: TextInputType.phone,
+                          onChanged: (value) => viewModel.addNumber(value, index),
                         );
                       },
                     ),
