@@ -130,7 +130,7 @@ class _LogInState extends State<LogIn> {
                       obscurePassword();
                     },
                   ),
-                  inputType: TextInputType.name,
+                  //inputType: TextInputType.name, this popping error
                 ),
               ),
               SizedBox(height: McGyver.rsDoubleH(context, 2)),

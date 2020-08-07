@@ -4,6 +4,7 @@ import 'package:asthma_management/views/bottombar/bottombar.dart';
 import 'package:asthma_management/views/home/homeView.dart';
 import 'package:asthma_management/views/profile2/profile2View.dart';
 import 'package:asthma_management/views/home/homeView.dart';
+import 'package:asthma_management/views/profile/profile1.dart';
 import 'package:asthma_management/views/login/view/login.dart';
 import 'package:asthma_management/views/signup/signupView.dart';
 import 'package:asthma_management/views/medication_screen/medication_screen.dart';
@@ -17,6 +18,7 @@ class RouteNames {
   static const String signup = '/signup';
   static const String splashScreen = '/';
   static const String medicationScreen = '/medicationScreen';
+  static const String profilepage1 = '/profilepage1';
   static const String profile2 = '/profile2';
   static const String bottomBar = '/bottomBar';
 
@@ -28,6 +30,7 @@ class RouteNames {
     RouteNames.splashScreen: (context) => SplashScreen(),
     RouteNames.medicationScreen: (context) => MedicationScreen(),
     RouteNames.profile2: (context) => Profile2(),
+    RouteNames.profilepage1: (context) => ProfilePage1(),
     RouteNames.bottomBar: (context) => MyHomePage()
   };
 }
